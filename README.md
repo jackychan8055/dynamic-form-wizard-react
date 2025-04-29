@@ -1,73 +1,50 @@
-# Welcome to your Lovable project
 
-## Project info
+# Dynamic Form Wizard
 
-**URL**: https://lovable.dev/projects/f5c216af-99e4-4ae2-91a0-a03df0e3675a
+A React application that allows students to login and fill out dynamic multi-section forms fetched from an API.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- Student login with roll number and name
+- Dynamic form rendering based on API response
+- Multi-section form wizard with validation
+- Progress tracking
+- Responsive design
 
-**Use Lovable**
+## Technologies Used
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f5c216af-99e4-4ae2-91a0-a03df0e3675a) and start prompting.
+- React with TypeScript
+- Tailwind CSS for styling
+- shadcn/ui for UI components
+- Fetch API for data fetching
 
-Changes made via Lovable will be committed automatically to this repo.
+## Project Structure
 
-**Use your preferred IDE**
+- `src/components`: UI components (LoginForm, FormWizard, FormSection, DynamicField)
+- `src/services`: API service for user registration and form fetching
+- `src/types`: TypeScript interfaces
+- `src/pages`: Application pages
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## How it Works
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. User enters roll number and name
+2. Application registers user via POST /create-user
+3. Application fetches form structure via GET /get-form
+4. User navigates through form sections
+5. Each section is validated before proceeding
+6. On final submission, form data is logged to console
 
-Follow these steps:
+## API Endpoints
+
+- POST /create-user — Registers the user (expects roll number and name)
+- GET /get-form — Returns the dynamic form structure (expects roll number)
+
+## Getting Started
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Install dependencies
+npm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/f5c216af-99e4-4ae2-91a0-a03df0e3675a) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
