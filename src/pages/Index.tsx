@@ -54,8 +54,13 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
+    <div className="min-h-screen py-12 px-4 sm:px-6">
       <div className="max-w-4xl mx-auto">
+        <div className="mb-8 text-center">
+          <h1 className="text-4xl font-extrabold form-title-gradient mb-2">Dynamic Form Wizard</h1>
+          <p className="text-gray-600">Complete all sections to submit your form</p>
+        </div>
+        
         {!user || !formData ? (
           <LoginForm onLogin={handleLogin} isLoading={isLoading} />
         ) : (

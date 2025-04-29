@@ -14,12 +14,12 @@ const FormSection = ({ section, formData, errors, onChange }: FormSectionProps) 
   const { title, description, fields } = section;
 
   return (
-    <Card className="w-full">
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
-        {description && <CardDescription>{description}</CardDescription>}
+    <Card className="w-full card-gradient animate-fade-in">
+      <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50 border-b">
+        <CardTitle className="text-2xl font-bold text-form-dark">{title}</CardTitle>
+        {description && <CardDescription className="text-gray-600">{description}</CardDescription>}
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-6 p-6">
         {fields.map((field: FormField) => (
           <DynamicField
             key={field.fieldId}

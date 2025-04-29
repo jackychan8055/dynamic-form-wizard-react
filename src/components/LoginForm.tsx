@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { User as UserIcon, LogIn } from "lucide-react";
 
 interface LoginFormProps {
   onLogin: (user: User) => void;
@@ -55,17 +56,21 @@ const LoginForm = ({ onLogin, isLoading }: LoginFormProps) => {
   };
 
   return (
-    <Card className="w-full max-w-md mx-auto">
-      <CardHeader>
-        <CardTitle className="text-2xl text-center">Student Login</CardTitle>
-        <CardDescription className="text-center">
+    <Card className="w-full max-w-md mx-auto card-gradient animate-fade-in">
+      <div className="w-full h-2 bg-gradient-to-r from-blue-400 to-blue-600 rounded-t-lg"></div>
+      <CardHeader className="pt-8 pb-4">
+        <div className="mx-auto bg-blue-100 p-3 rounded-full mb-4 w-16 h-16 flex items-center justify-center">
+          <UserIcon className="h-8 w-8 text-form" />
+        </div>
+        <CardTitle className="text-2xl text-center font-bold form-title-gradient">Student Login</CardTitle>
+        <CardDescription className="text-center text-gray-600">
           Enter your roll number and name to continue
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div className="space-y-2">
-            <Label htmlFor="rollNumber">Roll Number</Label>
+            <Label htmlFor="rollNumber" className="text-sm font-medium text-gray-700">Roll Number</Label>
             <Input
               id="rollNumber"
               name="rollNumber"
@@ -75,6 +80,7 @@ const LoginForm = ({ onLogin, isLoading }: LoginFormProps) => {
               onChange={handleChange}
               disabled={isLoading}
               data-testid="roll-number-input"
+              className="border-gray-300 focus:border-form focus:ring focus:ring-blue-200 transition-all"
             />
             {errors.rollNumber && (
               <p className="text-red-500 text-sm">{errors.rollNumber}</p>
@@ -82,7 +88,7 @@ const LoginForm = ({ onLogin, isLoading }: LoginFormProps) => {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="name">Name</Label>
+            <Label htmlFor="name" className="text-sm font-medium text-gray-700">Name</Label>
             <Input
               id="name"
               name="name"
@@ -92,14 +98,24 @@ const LoginForm = ({ onLogin, isLoading }: LoginFormProps) => {
               onChange={handleChange}
               disabled={isLoading}
               data-testid="name-input"
+              className="border-gray-300 focus:border-form focus:ring focus:ring-blue-200 transition-all"
             />
             {errors.name && (
               <p className="text-red-500 text-sm">{errors.name}</p>
             )}
           </div>
 
-          <Button type="submit" className="w-full bg-form hover:bg-form-dark" disabled={isLoading}>
-            {isLoading ? "Logging in..." : "Login"}
+          <Button 
+            type="submit" 
+            className="w-full bg-form hover:bg-form-dark transition-all duration-200 flex items-center justify-center gap-2 py-5" 
+            disabled={isLoading}
+          >
+            {isLoading ? "Logging in..." : (
+              <>
+                <LogIn className="h-5 w-5" />
+                <span>Login</span>
+              </>
+            )}
           </Button>
         </form>
       </CardContent>
